@@ -1,7 +1,7 @@
-FROM quay.io/fedora/fedora-bootc:45
+FROM quay.io/centos-bootc/centos-bootc:stream10
 
 # Install packages like any container
-RUN dnf install -y nginx vim htop && \
+RUN dnf install -y nginx vim && \
     dnf clean all
 
 # Enable systemd services
