@@ -14,6 +14,10 @@ COPY index.html /var/www/html/index.html
 EXPOSE 8080
 
 # Create user wits
-RUN useradd -m -s /bin/bash -p $(openssl passwd -6 'wITs.2026') wits
+RUN useradd -m -s /bin/bash -G wheel -p $(openssl passwd -6 'wITs.2026') wits
+
+# Custom motd
+RUN rm -r /etc/motd.d/insights-client
+RUN echo "WITS BootC server!" > /etc/motd
 
 CMD ["/sbin/init"]
