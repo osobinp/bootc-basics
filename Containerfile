@@ -1,7 +1,7 @@
 FROM quay.io/centos-bootc/centos-bootc:stream10
 
 # Install packages like any container
-RUN dnf install -y nginx vim && \
+RUN dnf install -y nginx vim mc && \
     dnf clean all
 
 # Enable systemd services
